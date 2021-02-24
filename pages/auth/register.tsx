@@ -59,6 +59,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Register() {
   const classes = useStyles();
+
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -126,5 +127,5 @@ export default function Register() {
         </div>
       </Grid>
     </Grid>
-  )
+  );
 }

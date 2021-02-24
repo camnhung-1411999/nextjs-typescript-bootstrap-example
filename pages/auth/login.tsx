@@ -14,6 +14,7 @@ import Typography from '@material-ui/core/Typography';
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 import { makeStyles } from '@material-ui/core/styles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Copyright() {
   return (
@@ -33,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
+    backgroundImage: 'url(https://scontent-sin6-1.xx.fbcdn.net/v/t1.15752-9/152935674_222253792914836_3189216889596698807_n.png?_nc_cat=107&ccb=3&_nc_sid=ae9488&_nc_ohc=UIIequvON30AX8Ytpf-&_nc_ht=scontent-sin6-1.xx&oh=3cf75fd027e3e3db8bd7e9f198f754f9&oe=605C8E41)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
@@ -56,7 +57,8 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-  },
+    backgroundColor: '#0f4764'
+  }
 }));
 
 export default function Login() {
@@ -96,7 +98,7 @@ export default function Login() {
           buttonText='LOGIN WITH GOOGLE'
           render={(renderProps) => (
             <a onClick={renderProps.onClick} className='social'>
-              <i className='fab fa-google-plus-g'>G+</i>
+              <i>G+</i>
             </a>
           )}
           onSuccess={responseGoogle}
