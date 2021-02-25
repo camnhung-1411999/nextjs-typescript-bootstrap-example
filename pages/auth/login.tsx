@@ -14,7 +14,6 @@ import Typography from '@material-ui/core/Typography';
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 import { makeStyles } from '@material-ui/core/styles';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Copyright() {
   return (
@@ -57,29 +56,20 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    backgroundColor: '#0f4764'
-  }
+    backgroundColor: '#0f4764',
+  },
 }));
 
 export default function Login() {
   const classes = useStyles();
 
   const responseGoogle = (response) => {
-    const data = {
-      user: response.profileObj.email,
-      name: response.profileObj.name,
-      password: response.googleId,
-    };
+    console.log(response);
   };
 
   const responseFacebook = (response) => {
     console.log(response);
-    const data ={
-        user: response.email,
-        name: response.name,
-        password: response.id,
-      }
-}
+  };
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -94,7 +84,7 @@ export default function Login() {
           </Typography>
           <div className='social-container'>
           <GoogleLogin
-          clientId='814331646531-1cusjvuaad9pvhuntn4iv59avs6vbmaq.apps.googleusercontent.com' //CLIENTID NOT CREATED YET
+          clientId='814331646531-1cusjvuaad9pvhuntn4iv59avs6vbmaq.apps.googleusercontent.com'
           buttonText='LOGIN WITH GOOGLE'
           render={(renderProps) => (
             <a onClick={renderProps.onClick} className='social'>
@@ -106,7 +96,7 @@ export default function Login() {
         />
         <FacebookLogin
         textButton=""
-        appId='3754633467882560' //APP ID NOT CREATED YET
+        appId='3754633467882560'
         fields='name,email,picture'
         callback={responseFacebook}
         cssClass="social-facebook"
@@ -174,5 +164,5 @@ export default function Login() {
         </div>
       </Grid>
     </Grid>
-  )
+  );
 }
