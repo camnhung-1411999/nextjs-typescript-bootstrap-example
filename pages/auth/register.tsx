@@ -1,131 +1,257 @@
 import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: '100vh',
-  },
-  image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
-    backgroundRepeat: 'no-repeat',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  },
-  paper: {
-    margin: theme.spacing(8, 4),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
+import * as formik from 'formik';
+import * as yup from 'yup';
+import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
+import {
+  Col, Row, Form, Button, InputGroup,
+} from 'react-bootstrap';
 
 export default function Register() {
-  const classes = useStyles();
+  const { Formik } = formik;
+  const responseGoogle = (response) => {
+    console.log(response);
+  };
 
+  const responseFacebook = (response) => {
+    console.log(response);
+  };
+  const schema = yup.object().shape({
+    firstName: yup.string().required(),
+    lastName: yup.string().required(),
+    email: yup.string().email('Email invalid').required('Email is required field'),
+    password: yup.string()
+    .required('No password provided.')
+    .min(8, 'Password is too short - should be 8 chars minimum.')
+    .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
+    phone: yup.string().required('Phone is required field').matches(/[0-9]/, 'Phone must number 0-9.')
+    .max(10)
+    .min(10),
+    city: yup.string().required(),
+    state: yup.string().required(),
+    zip: yup.string().required(),
+    terms: yup.bool().required().oneOf([true], 'Terms must be accepted'),
+  });
   return (
-    <Grid container component="main" className={classes.root}>
-      <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
-          <form className={classes.form} noValidate>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
+    <Row className='auth-container'>
+      <Col xs={12} md={7} className='auth-image'>
+      </Col>
+      <Col xs={12} md={5}>
+      <Formik
+      validationSchema={schema}
+      onSubmit={console.log}
+      initialValues={{
+        firstName: 'Mark',
+        lastName: 'Otto',
+        email: '',
+        password: '',
+        phone: '',
+        city: '',
+        state: '',
+        zip: '',
+        terms: false,
+      }}
+    >
+      {({
+        handleSubmit,
+        handleChange,
+        values,
+        touched,
+        errors,
+      }) => (
+        <Form noValidate onSubmit={handleSubmit} className='auth-content'>
+          <h1 className="auth-title">Register Account</h1>
+          <div className='social-container'>
+
+              <GoogleLogin
+              clientId='814331646531-1cusjvuaad9pvhuntn4iv59avs6vbmaq.apps.googleusercontent.com'
+              buttonText='LOGIN WITH GOOGLE'
+              render={(renderProps) => (
+                <a onClick={renderProps.onClick} className='social'>G+
+                </a>
+              )}
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
             />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Sign In
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
-            <Box mt={5}>
-              <Copyright />
-            </Box>
-          </form>
+            <FacebookLogin
+            textButton=""
+            appId='3754633467882560'
+            fields='name,email,picture'
+            callback={responseFacebook}
+            cssClass="social-facebook"
+            icon="fa-facebook"
+          />
         </div>
-      </Grid>
-    </Grid>
+          <Form.Row>
+            <Form.Group as={Col} md="6" controlId="validationFormik01">
+              <Form.Label>First name</Form.Label>
+              <Form.Control
+                type="text"
+                name="firstName"
+                value={values.firstName}
+                onChange={handleChange}
+                isValid={touched.firstName && !errors.firstName}
+              />
+              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group as={Col} md="6" controlId="validationFormik02">
+              <Form.Label>Last name</Form.Label>
+              <Form.Control
+                type="text"
+                name="lastName"
+                value={values.lastName}
+                onChange={handleChange}
+                isValid={touched.lastName && !errors.lastName}
+              />
+
+              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group as={Col} md="12" controlId="validationFormikUsername">
+              <Form.Label>Email</Form.Label>
+              <InputGroup hasValidation>
+                <InputGroup.Prepend>
+                  <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+                </InputGroup.Prepend>
+                <Form.Control
+                  type="text"
+                  placeholder="Email"
+                  aria-describedby="inputGroupPrepend"
+                  name="email"
+                  value={values.email}
+                  onChange={handleChange}
+                  isInvalid={!!errors.email}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {errors.email}
+                </Form.Control.Feedback>
+              </InputGroup>
+            </Form.Group>
+            <Form.Group as={Col} md="12" controlId="validationFormikUsername">
+              <Form.Label>Password</Form.Label>
+              <InputGroup hasValidation>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  aria-describedby="inputGroupPrepend"
+                  name="password"
+                  value={values.password}
+                  onChange={handleChange}
+                  isInvalid={!!errors.password}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {errors.password}
+                </Form.Control.Feedback>
+              </InputGroup>
+            </Form.Group>
+            <Form.Group as={Col} md="12" controlId="validationFormikUsername">
+              <Form.Label>Phone number</Form.Label>
+              <InputGroup hasValidation>
+                <Form.Control
+                  type="text"
+                  placeholder="Phone"
+                  aria-describedby="inputGroupPrepend"
+                  name="phone"
+                  value={values.phone}
+                  onChange={handleChange}
+                  isInvalid={!!errors.phone}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {errors.phone}
+                </Form.Control.Feedback>
+              </InputGroup>
+            </Form.Group>
+            <Form.Group as={Col} md="12" controlId="validationFormikUsername">
+              <Form.Label>Gender</Form.Label>
+              <div>
+              <Form.Check
+                inline
+                label="Male"
+                type='radio'
+                name="formHorizontalRadios"
+                id="formHorizontalRadios1"
+              />
+              <Form.Check
+                inline
+                label="Female"
+                type='radio'
+                name="formHorizontalRadios"
+                id="formHorizontalRadios2"
+              />
+              <Form.Check
+                inline
+                label="Others"
+                type='radio'
+                name="formHorizontalRadios"
+                id="formHorizontalRadios3"
+              />
+              </div>
+            </Form.Group>
+          </Form.Row>
+          <Form.Row>
+            <Form.Group as={Col} md="6" controlId="validationFormik03">
+              <Form.Label>City</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="City"
+                name="city"
+                value={values.city}
+                onChange={handleChange}
+                isInvalid={!!errors.city}
+              />
+
+              <Form.Control.Feedback type="invalid">
+                {errors.city}
+              </Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group as={Col} md="3" controlId="validationFormik04">
+              <Form.Label>State</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="State"
+                name="state"
+                value={values.state}
+                onChange={handleChange}
+                isInvalid={!!errors.state}
+              />
+              <Form.Control.Feedback type="invalid">
+                {errors.state}
+              </Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group as={Col} md="3" controlId="validationFormik05">
+              <Form.Label>Zip</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Zip"
+                name="zip"
+                value={values.zip}
+                onChange={handleChange}
+                isInvalid={!!errors.zip}
+              />
+
+              <Form.Control.Feedback type="invalid">
+                {errors.zip}
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Form.Row>
+          <Form.Group>
+            <Form.Check
+              required
+              name="terms"
+              label="Agree to terms and conditions"
+              onChange={handleChange}
+              isInvalid={!!errors.terms}
+              feedback={errors.terms}
+              id="validationFormik0"
+            />
+          </Form.Group>
+          <Button type="submit" className="auth-submit">Register</Button>
+        </Form>
+      )}
+    </Formik>
+    <div className="auth-link">
+      <a>Have account? Go to login</a>
+    </div>
+      </Col>
+    </Row>
   );
 }

@@ -11,8 +11,6 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import FacebookLogin from 'react-facebook-login';
-import GoogleLogin from 'react-google-login';
 import { makeStyles } from '@material-ui/core/styles';
 
 function Copyright() {
@@ -63,13 +61,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Login() {
   const classes = useStyles();
 
-  const responseGoogle = (response) => {
-    console.log(response);
-  };
-
-  const responseFacebook = (response) => {
-    console.log(response);
-  };
+ 
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -82,33 +74,13 @@ export default function Login() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <div className='social-container'>
-          <GoogleLogin
-          clientId='814331646531-1cusjvuaad9pvhuntn4iv59avs6vbmaq.apps.googleusercontent.com'
-          buttonText='LOGIN WITH GOOGLE'
-          render={(renderProps) => (
-            <a onClick={renderProps.onClick} className='social'>
-              <i>G+</i>
-            </a>
-          )}
-          onSuccess={responseGoogle}
-          onFailure={responseGoogle}
-        />
-        <FacebookLogin
-        textButton=""
-        appId='3754633467882560'
-        fields='name,email,picture'
-        callback={responseFacebook}
-        cssClass="social-facebook"
-        icon="fa-facebook"
-      />
+
           {/* <a href={'/'} className='social'>
             <i className='fab fa-facebook-f'></i>
           </a>
           <a href={'/'} className='social'>
             <i className='fab fa-google-plus-g'></i>
           </a> */}
-        </div>
           <form className={classes.form} noValidate>
             <TextField
               variant="outlined"

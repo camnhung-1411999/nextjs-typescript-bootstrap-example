@@ -26,7 +26,7 @@
   }
   
   .social-container {
-    margin: 20px 0;
+    margin: 30px 40%;
   }
   
   .social-container a {
@@ -43,3 +43,45 @@
     height: 40px;
     width: 40px;
   }
+.auth-content {
+  width: 70vw;
+  margin: auto;
+  margin-top: 2rem;
+}
+.auth-title{
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.auth-image {
+  background-image: url('https://scontent-sin6-1.xx.fbcdn.net/v/t1.15752-9/152935674_222253792914836_3189216889596698807_n.png?_nc_cat=107&ccb=3&_nc_sid=ae9488&_nc_ohc=UIIequvON30AX8Ytpf-&_nc_ht=scontent-sin6-1.xx&oh=3cf75fd027e3e3db8bd7e9f198f754f9&oe=605C8E41');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+    box-shadow: 0px -5px 5px 0px rgba(0, 0, 0, 0.75);
+}
+@media(max-width: 768px){
+  .auth-image {
+  height: 60vh;
+  }
+}
+.auth-container{
+  height: 100vh;
+  color: #0f4764;
+}
+.auth-link {
+  margin-top:0.5rem;
+  text-align: center;
+  color: rgb(52, 130, 219);
+  font-size: 0.8em;
+}
+.auth-link:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+.auth-submit {
+  background-color: #0f4764;
+  width: 100%;
+}
+.row{
+  margin: 0 !important;
+}
