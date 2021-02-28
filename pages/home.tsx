@@ -1,9 +1,8 @@
 import React from 'react';
 
-export default function hello() {
+export default function home() {
     return (
         <div>
-            111111
         </div>
     );
 }

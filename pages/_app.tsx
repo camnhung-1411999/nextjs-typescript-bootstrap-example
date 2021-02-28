@@ -7,7 +7,6 @@ import '../styles/auth.css';
 function MyApp({ Component, pageProps }) {
   return (
     <AuthProvider>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <Component {...pageProps} />
     </AuthProvider>
   );
