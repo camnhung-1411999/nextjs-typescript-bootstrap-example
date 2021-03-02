@@ -10,7 +10,7 @@ export default function Login() {
       <Col xs={12} md={7} className='auth-image'>
       </Col>
       <Col xs={12} md={5}>
-          <LoginForm/>
+        <LoginForm/>
       </Col>
     </Row>
   );
