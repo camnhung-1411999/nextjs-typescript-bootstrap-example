@@ -43,8 +43,8 @@
     height: 40px;
     width: 40px;
   }
-.auth-content {
-  width: 70vw;
+.auth-content, .auth-link, .auth-link-login {
+  width: 70%;
   margin: auto;
   margin-top: 2rem;
 }
@@ -68,13 +68,16 @@
   height: 100vh;
   color: #0f4764;
 }
-.auth-link {
+.auth-link, .auth-link-login {
   margin-top:0.5rem;
-  text-align: center;
+  
   color: rgb(52, 130, 219);
   font-size: 0.8em;
 }
-.auth-link:hover{
+.auth-link{
+  text-align: center;
+}
+.auth-link:hover, .auth-link-login:hover{
   cursor: pointer;
   text-decoration: underline;
 }

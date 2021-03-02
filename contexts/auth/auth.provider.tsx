@@ -11,6 +11,13 @@ function reducer(state: any, action: any) {
         case 'LOGIN': {
             return {
                 ...state,
+                isLogin: true,
+            };
+        }
+        case 'PROFILE': {
+            return {
+                ...state,
+                profile: action.profile,
             };
         }
         default: {
@@ -27,7 +34,7 @@ const AuthProvider = (props: any) => {
 
     return (
         <AuthContext.Provider
-        value={{ authState, authDispatch }}>
+            value={{ authState, authDispatch }}>
             {props.children}
         </AuthContext.Provider>
     );

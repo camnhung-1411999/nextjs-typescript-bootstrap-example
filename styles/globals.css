@@ -14,3 +14,14 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.icon-nav{
+  font-family: "simple-line-icons";
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
