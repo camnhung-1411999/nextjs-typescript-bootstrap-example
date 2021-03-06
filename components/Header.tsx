@@ -11,10 +11,9 @@ const Header = () => {
   };
 
   return (
-    <Navbar expand="lg">
-          <img src='/images/favicon.png' width='45' height='40' />
+    <Navbar expand="lg" id = "header">
       <div className='container'>
-
+        <img src='/rent-logo.png' width={100}/>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto font-weight-bold">
@@ -25,7 +24,6 @@ const Header = () => {
             <Nav.Link href="/indentureSearch">Tra Cứu Hợp Đồng</Nav.Link>
           </Nav>
         </Navbar.Collapse>
-
       </div >
     </Navbar >
   );

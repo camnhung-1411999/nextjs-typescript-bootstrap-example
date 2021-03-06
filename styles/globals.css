@@ -25,3 +25,8 @@ a {
     line-height: 1;
     -webkit-font-smoothing: antialiased;
 }
+
+.main-btn{
+  background: #2687b8;
+}
+
