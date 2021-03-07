@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header';
+import Header from '../Header';
 import ProductItem from './ProductItem';
 import {Pagination} from 'antd';
 import 'antd/dist/antd.css';

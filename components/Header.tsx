@@ -16,7 +16,7 @@ const Header = () => {
         <img src='/rent-logo.png' width={100}/>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto font-weight-bold">
+          <Nav className="ml-auto font-weight-bold ">
             <Nav.Link href="/">Trang Chủ</Nav.Link>
             <Nav.Link href="/introduce">Giới thiệu</Nav.Link>
             <Nav.Link href="/product">Sản Phẩm</Nav.Link>

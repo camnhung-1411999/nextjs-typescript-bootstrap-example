@@ -1,6 +1,7 @@
 import React from 'react';
-import ProductsList from '../../components/ProductsList';
+import ProductsList from '../../components/products/ProductsList';
 import Header from '../../components/Header';
+import FilterCategory from '../../components/filters/FilterCategory';
 
 export default function Category() {
     const mockupData = {
@@ -59,8 +60,17 @@ export default function Category() {
     return (
         <div>
             <Header/>
-            <div>
-                <ProductsList data={mockupData}/>
+            <div className = "container">
+                <div className="row">
+                    <div className="col-sm-2">
+                        <div>
+                            <FilterCategory/>
+                        </div>
+                    </div>
+                    <div className="col-sm-10">
+                        <ProductsList data={mockupData}/>
+                    </div>
+                </div>
             </div>
         </div>
     );

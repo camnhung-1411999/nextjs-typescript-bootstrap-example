@@ -2,7 +2,6 @@ import React from 'react';
 import ReactStars from 'react-rating-stars-component';
 
 const ProductItem = ({ data }) => {
-    console.log(data);
     return (
         <div className="product-miniature">
             <div className="product-thumbnail-container">
