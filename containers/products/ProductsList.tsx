@@ -1,15 +1,14 @@
 import React from 'react';
-import Header from '../Header';
-import ProductItem from './ProductItem';
-import {Pagination} from 'antd';
+import { Pagination } from 'antd';
 import 'antd/dist/antd.css';
 import {
-    Button, ButtonGroup, Dropdown, DropdownButton
+    Button, ButtonGroup, Dropdown, DropdownButton,
 } from 'react-bootstrap';
+import ProductItem from 'containers/products/ProductItem';
 
 export default function ProductsList({ data }) {
     console.log(data);
-    let listItems = data.payload.map((item) => <ProductItem data = {item}/>);
+    const listItems = data.payload.map((item) => <ProductItem data = {item}/>);
 
     return (
         <div>

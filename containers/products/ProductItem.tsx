@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactStars from 'react-rating-stars-component';
 
-const ProductItem = ({ data }) => {
-    return (
+const ProductItem = ({ data }) => (
         <div className="product-miniature">
             <div className="product-thumbnail-container">
                 <img width="100%" src={'/no_img.jpg'} alt={'No image'}/>
@@ -34,6 +33,5 @@ const ProductItem = ({ data }) => {
             </div>
         </div>
     );
-}
 
 export default ProductItem;

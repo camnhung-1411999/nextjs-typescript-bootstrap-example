@@ -1,7 +1,7 @@
 import React from 'react';
-import ProductsList from '../../components/products/ProductsList';
-import Header from '../../components/Header';
-import FilterCategory from '../../components/filters/FilterCategory';
+import ProductsList from 'containers/products/ProductsList';
+import Header from 'components/Header';
+import FilterCategory from 'components/filters/FilterCategory';
 
 export default function Category() {
     const mockupData = {
