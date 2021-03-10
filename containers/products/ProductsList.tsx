@@ -7,8 +7,7 @@ import {
 import ProductItem from 'containers/products/ProductItem';
 
 export default function ProductsList({ data }) {
-    console.log(data);
-    const listItems = data.payload.map((item) => <ProductItem data = {item}/>);
+    const listItems = data.payload.map((item) => <ProductItem data = {item} key={item}/>);
 
     return (
         <div>

@@ -1,6 +1,5 @@
 import React from 'react';
 import ProductsList from 'containers/products/ProductsList';
-import Header from 'components/Header';
 import FilterCategory from 'components/filters/FilterCategory';
 
 export default function Category() {
@@ -59,8 +58,8 @@ export default function Category() {
 
     return (
         <div>
-            <Header/>
-            <div className = "container">
+            <img src='https://apollotran.com/demo/at_meubles_demo/c/3-category_default/decor.jpg' width='100%'/>
+            <div className = "container mt-5">
                 <div className="row">
                     <div className="col-sm-2">
                         <div>

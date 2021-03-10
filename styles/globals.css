@@ -30,3 +30,28 @@ a {
   background: #2687b8;
 }
 
+a:hover {
+  color: #2687b8;
+  text-decoration: none;
+}
+
+footer, .app-footer {
+  background: #000000 !important;
+  color: #fff !important;
+  width: 100%;
+}
+footer a{
+  font-size: 0.9rem;
+
+}
+footer a, footer h5{
+  color: #fff !important;
+  font-family: "Montserrat",sans-serif;
+  color: #333;
+  background-color: transparent;
+}
+footer a:hover{
+  color: #2687b8 !important;
+  text-decoration: none!important;
+}
+

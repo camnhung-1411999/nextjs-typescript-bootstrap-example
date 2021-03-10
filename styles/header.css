@@ -3,3 +3,54 @@
     padding-top: 30px;
     margin-bottom: 20px;
 }
+
+.nav-item-center{
+    justify-content: center;
+}
+.nav-item-center a {
+    margin-right: 1rem;
+}
+.nav-item-center{
+    padding: 29px 25px;
+    font-size: 0.9rem;
+    font-family: "Montserrat",sans-serif;
+    text-transform: uppercase;
+    color: #333;
+    background-color: transparent;
+}
+.nav-icon{
+    font-size: 1rem;
+    color: #333;
+}
+.nav-item-center a:hover{
+    color: #e25d5d !important;
+}
+.nav-icon:hover{
+    color: #e25d5d;
+    cursor: pointer;
+}
+.form-control:focus {
+    box-shadow: none;
+  }
+  
+  .form-control-underlined {
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-radius: 0;
+    padding-left: 0;
+  }
+  .form-control::placeholder {
+    font-size: 0.95rem;
+    color: #aaa;
+    font-style: italic;
+  }
+
+  .icons{
+      display: flex;
+      align-items: center;
+  }
+
+  .dropdown-menu.show {
+    left: -90px;
+    top:50px
+}
