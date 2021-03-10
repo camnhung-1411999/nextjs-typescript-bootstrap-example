@@ -1,12 +1,9 @@
-.container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
+.icontainer{
+  width: 90vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
-
 .main {
   padding: 5rem 0;
   flex: 1;

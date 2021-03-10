@@ -6,6 +6,7 @@ import '../styles/globals.css';
 import '../styles/auth.css';
 import '../styles/header.css';
 import '../styles/product.css';
+import '../styles/cart.css';
 
 function MyApp({ Component, pageProps }) {
   return (

@@ -15,12 +15,13 @@
     font-size: 0.9rem;
     font-family: "Montserrat",sans-serif;
     text-transform: uppercase;
-    color: #333;
+    color: rgb(82, 79, 79);
     background-color: transparent;
 }
 .nav-icon{
     font-size: 1rem;
     color: #333;
+    font-family: "simple-line-icons";
 }
 .nav-item-center a:hover{
     color: #e25d5d !important;

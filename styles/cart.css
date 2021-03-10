@@ -1,0 +1,29 @@
+.cart-container{
+    width: 80%;
+    margin: 0 auto !important;
+}
+.cart-container td, .cart-container th{
+    text-align: center;
+}
+.total-cart{
+    width: 90%;
+    height: 90%;
+    margin: 2rem auto !important;
+    font-size: 1.1rem;
+    font-family: "Montserrat",sans-serif;
+    color: rgb(82, 79, 79);
+    background-color: transparent;
+}
+.total-cart a{
+    color:rgb(47, 95, 228)!important;
+}
+
+.total-cart a:hover{
+    cursor: pointer;
+    color:rgb(47, 95, 228)!important;
+}
+.cart-total-item{
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #dbdcdc;
+    margin-bottom: 1rem;
+}
